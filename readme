@@ -1,0 +1,5 @@
+Get this package:
+$ go get github.com/rizkiyoist/bulk-converter.git
+
+Run with:
+$ bulk-converter
