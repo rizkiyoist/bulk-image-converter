@@ -18,7 +18,7 @@ func main() {
 	os.Mkdir("cvrt", 0777)
 	for _, fileName := range fileNames {
 		noExtFileName := removeExtension(fileName)
-		cmd := exec.Command("convert", fileName, "-resize", "50%", "JPG:"+noExtFileName+"resized")
+		cmd := exec.Command("convert", fileName, "-resize", "50%", "JPG:"+noExtFileName+"resized.jpg")
 		out, err := cmd.CombinedOutput()
 		if err != nil {
 			fmt.Println(fileName, err)
