@@ -1,5 +1,2 @@
-Get this package:
-$ go get github.com/rizkiyoist/bulk-converter.git
-
-Run with:
-$ bulk-converter
+Quick and dirty solution for converting bulk images in a folder.
+Uses Imagemagick convert command.
