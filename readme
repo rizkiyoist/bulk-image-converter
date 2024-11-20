@@ -1,2 +1,5 @@
 Quick and dirty solution for converting bulk images in a folder.
 Uses Imagemagick convert command.
+
+Put images in main directory and run script.
+Output will be in cvrt folder.
