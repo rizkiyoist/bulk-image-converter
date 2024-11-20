@@ -7,8 +7,6 @@ import (
 	"strings"
 )
 
-const targetConvert = ".jpg"
-
 func main() {
 	// find all filenames in this directory
 	fileNames, err := findFileNames()
@@ -18,12 +16,17 @@ func main() {
 	os.Mkdir("cvrt", 0777)
 	for _, fileName := range fileNames {
 		noExtFileName := removeExtension(fileName)
-		cmd := exec.Command("convert", fileName, "-resize", "50%", "JPG:"+noExtFileName+"resized.jpg")
+		cmd := exec.Command("magick", fileName, "-resize", "50%", "JPG:"+noExtFileName+"_resized.jpg")
 		out, err := cmd.CombinedOutput()
 		if err != nil {
 			fmt.Println(fileName, err)
 		}
 		fmt.Println(string(out))
+		cmd = exec.Command("mv", noExtFileName+"_resized.jpg", "cvrt/"+noExtFileName+"_resized.jpg")
+		_, err = cmd.CombinedOutput()
+		if err != nil {
+			fmt.Println(fileName, err)
+		}
 	}
 	fmt.Println("done")
 }
